@@ -22,7 +22,7 @@
     "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "test": "CI=true react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "cypress": "cypress open"
   },
   "browserslist": {
