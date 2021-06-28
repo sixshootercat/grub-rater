@@ -1,21 +1,11 @@
-import React, { useEffect, useState, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 
-const App: FunctionComponent = () => {
-  const [data, setData] = useState({});
-
-  console.log("test log");
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
-  return (
-    <div>
-      <header>
-        <p>Hello world!</p>
-      </header>
-    </div>
-  );
-};
+const App: FunctionComponent = () => (
+  <div>
+    <header>
+      <p>Hello world!</p>
+    </header>
+  </div>
+);
 
 export default App;
