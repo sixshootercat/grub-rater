@@ -19,9 +19,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/*"
+    "lint": "eslint src",
+    "test": "CI=true react-scripts test",
+    "cypress": "cypress open"
   },
   "browserslist": {
     "production": [
@@ -38,6 +40,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
+    "cypress": "^7.6.0",
     "eslint": "^7.20.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-import-resolver-typescript": "^2.4.0",
