@@ -1,18 +1,30 @@
 import React, { FunctionComponent, useEffect } from "react";
 
-type RestaurantListProps = {
-  loadRestaurants: () => void
+type Restaurant = {
+  name: string;
+  id: number
 }
 
-export const RestaurantList: FunctionComponent<RestaurantListProps> = ({ loadRestaurants }) => {
+type RestaurantListProps = {
+  loadRestaurants: () => void
+  restaurants: Restaurant[]
+}
+
+export const RestaurantList: FunctionComponent<RestaurantListProps> = ({
+  loadRestaurants,
+  restaurants,
+}) => {
   useEffect(() => {
     loadRestaurants();
   }, [loadRestaurants]);
 
   return (
-    <div>
-      <h1>Restaurant List</h1>
-    </div>
+    <>
+      <ul>
+        {restaurants.map((restaurant) => <li key={restaurant.id}>{restaurant.name}</li>)}
+      </ul>
+
+    </>
   );
 };
 
