@@ -1,4 +1,6 @@
 import React, { FunctionComponent, useEffect } from "react";
+import { connect } from "react-redux";
+import { loadRestaurants } from "../../store/restaurants/actions";
 
 type Restaurant = {
   name: string;
@@ -6,7 +8,7 @@ type Restaurant = {
 }
 
 type RestaurantListProps = {
-  loadRestaurants: () => void
+  loadRestaurants: () => void,
   restaurants: Restaurant[]
 }
 
@@ -28,4 +30,10 @@ export const RestaurantList: FunctionComponent<RestaurantListProps> = ({
   );
 };
 
-export default RestaurantList;
+const mapStateToProps = (state: any) => ({
+  restaurants: state.restaurants.records,
+});
+
+const mapDispatchToProps = { loadRestaurants };
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList);
