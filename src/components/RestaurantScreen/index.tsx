@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { RestaurantList } from "../RestaurantList";
+import RestaurantList from "../RestaurantList";
 
 export const RestaurantScreen: FunctionComponent = () => (
   <div>
