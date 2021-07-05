@@ -1,2 +1,2 @@
 export { RestaurantScreen } from "./RestaurantScreen";
-export { RestaurantList } from "./RestaurantList";
+export { RestaurantList as default } from "./RestaurantList";

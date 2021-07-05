@@ -1,11 +1,8 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { connect } from "react-redux";
-import { loadRestaurants } from "../../store/restaurants/actions";
-
-type Restaurant = {
-  name: string;
-  id: number
-}
+import { AppState } from "../../store/reducers";
+import { loadRestaurants as _loadRestaurants } from "../../store/restaurants/actions";
+import { Restaurant } from "../../store/restaurants/types";
 
 type RestaurantListProps = {
   loadRestaurants: () => void,
@@ -30,10 +27,10 @@ export const RestaurantList: FunctionComponent<RestaurantListProps> = ({
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: AppState) => ({
   restaurants: state.restaurants.records,
 });
 
-const mapDispatchToProps = { loadRestaurants };
+const mapDispatchToProps = { loadRestaurants: _loadRestaurants };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList);

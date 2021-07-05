@@ -6,7 +6,8 @@
   "extends": [
     "plugin:react/recommended",
     "airbnb",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -31,9 +32,12 @@
       "ignorePackages",
       {
         "ts": "never",
-        "tsx": "never"
+        "tsx": "never",
+        "jsx": "never",
+        "js": "never"
       }
     ],
+    "import/no-named-as-default": "off",
     "quotes": ["error", "double"],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
