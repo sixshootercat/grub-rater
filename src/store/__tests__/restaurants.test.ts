@@ -1,7 +1,8 @@
 import { applyMiddleware, createStore } from "redux";
-import thunk from "redux-thunk";
-import { loadRestaurants } from "../restaurants/actions";
+import thunk, { ThunkMiddleware } from "redux-thunk";
+import { loadRestaurants, State } from "../restaurants/actions";
 import { restaurants } from "../restaurants/reducers";
+import { Action } from "../restaurants/types";
 
 describe("restaurants", () => {
   describe("loadRestaurants action", () => {
@@ -22,7 +23,11 @@ describe("restaurants", () => {
       const store = createStore(
         restaurants,
         initialState,
-        applyMiddleware(thunk.withExtraArgument(api)),
+        applyMiddleware(thunk.withExtraArgument(api) as ThunkMiddleware<
+          State,
+          Action,
+          typeof api
+        >),
       );
 
       await store.dispatch(loadRestaurants());
