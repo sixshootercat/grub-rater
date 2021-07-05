@@ -1,9 +1,7 @@
 import axios from "axios";
 
-const API_KEY = "edUjolleuj9Qc2XkbCdQrELiS5eKuNwu";
-
 const client = axios.create({
-  baseURL: `https://outside-in-dev-api.herokuapp.com/${API_KEY}`,
+  baseURL: `https://outside-in-dev-api.herokuapp.com/${process.env.API_KEY}`,
 });
 
 const apiClient = {
