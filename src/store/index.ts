@@ -1,11 +1,21 @@
-import { createStore, applyMiddleware, compose } from "redux";
+import {
+  createStore, applyMiddleware, compose, Action,
+} from "redux";
 import { devToolsEnhancer } from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import thunk, { ThunkMiddleware } from "redux-thunk";
 import rootReducer from "./reducers";
-import api from "../api";
+import apiClient from "../api";
+import { State } from "./restaurants/actions";
 
-const store = createStore(rootReducer, compose(applyMiddleware(
-  thunk.withExtraArgument(api),
-), devToolsEnhancer({})));
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk.withExtraArgument(apiClient) as ThunkMiddleware<
+      State,
+      Action,
+      typeof apiClient
+    >), devToolsEnhancer({}),
+  ),
+);
 
 export default store;

@@ -6,10 +6,10 @@ const client = axios.create({
   baseURL: `https://outside-in-dev-api.herokuapp.com/${API_KEY}`,
 });
 
-const api = {
-  loadRestaurants(): Promise<unknown> {
+const apiClient = {
+  loadRestaurants(): Promise<any> {
     return client.get("/restaurants").then((response) => response.data);
   },
 };
 
-export default api;
+export default apiClient;

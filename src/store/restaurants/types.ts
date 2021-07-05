@@ -5,4 +5,4 @@ export type Restaurant = {
   name: string
 }
 
-export type RestaurantAction = {type: typeof STORE_RESTAURANTS, records: Restaurant[]}
+export type Action = {type: typeof STORE_RESTAURANTS, records: Restaurant[]}
