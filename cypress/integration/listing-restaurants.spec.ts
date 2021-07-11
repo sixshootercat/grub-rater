@@ -9,7 +9,7 @@ describe("Listing Restaurants", () => {
 
     cy.route({
       method: "GET",
-      url: `https://outside-in-dev-api.herokuapp.com/${API_KEY}/restaurants`,
+      url: "https://outside-in-dev-api.herokuapp.com/edUjolleuj9Qc2XkbCdQrELiS5eKuNwu/restaurants",
       response: [
         { id: 1, name: pastaPlace },
         { id: 2, name: saladPlace },
